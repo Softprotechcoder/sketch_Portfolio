@@ -3,6 +3,7 @@ import { Home } from './home/home';
 import { Portfolio } from './portfolio/portfolio';
 import { Commission } from './commission/commission';
 import { About } from './about/about';
+import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
     {
@@ -24,5 +25,10 @@ export const routes: Routes = [
     {
         path : 'about',
         component : About
+    },
+    {
+        path: '**',
+        component: NotFound
     }
+
 ];

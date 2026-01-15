@@ -1,0 +1,86 @@
+/* ===== NAVBAR WRAPPER ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* When scrolled */
+.navbar.scrolled {
+  background: rgba(250, 250, 247, 0.95);
+  border-bottom: 1px solid #e5e5e0;
+  backdrop-filter: blur(6px);
+}
+
+/* ===== INNER CONTAINER ===== */
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== BRAND ===== */
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #1e1e1e;
+  letter-spacing: 0.5px;
+  display: contents;
+}
+
+/* ===== NAV MENU ===== */
+.nav-menu {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    position: relative;
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: #1e1e1e;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background: #1e1e1e;
+    }
+  }
+}
+.logo {
+      height: 70px;       // control logo size
+      width: auto;        // keep aspect ratio
+      margin-right: 0.5rem;
+    //   object-fit: contain; // ensures proper scaling
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05); // subtle hover effect
+      }
+    }
+
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+}
