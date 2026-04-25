@@ -73,6 +73,19 @@ After the workflow succeeds, the site will be available at:
 https://softprotechcoader.github.io/sketch_Portfolio/
 ```
 
+If the workflow fails with `Get Pages site failed` or `Not Found`, enable GitHub Pages once:
+
+1. Open the repository on GitHub.
+2. Go to **Settings > Pages**.
+3. Set **Build and deployment > Source** to **GitHub Actions**.
+4. Rerun the failed workflow.
+
+Alternative auto-enable option:
+
+1. Create a GitHub fine-grained token with repository **Pages: Read and write** and **Administration: Read and write**, or a classic token with `repo` scope.
+2. Add it as repository secret `PAGES_TOKEN`.
+3. Rerun the workflow. The `actions/configure-pages@v6` step will attempt to enable Pages automatically.
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
