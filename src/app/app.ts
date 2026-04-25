@@ -8,7 +8,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('Ayushi_Arya-Sketches');
+  protected readonly title = signal('Ayushi Arya Sketch Artist');
   
   scrolled = false;
 

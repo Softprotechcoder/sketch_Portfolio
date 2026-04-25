@@ -1,1 +1,36 @@
-<p>portfolio works!</p>
+<section class="page-shell portfolio-page">
+  <div class="page-inner">
+    <header class="portfolio-hero">
+      <p class="eyebrow">Portfolio</p>
+      <h1 class="section-title">Sketches with room for quiet detail.</h1>
+      <p class="section-copy">
+        A curated wall of portrait moods. These cards are designed as a responsive gallery and can
+        later be connected to real uploaded work or an artist CMS.
+      </p>
+    </header>
+
+    <div class="filter-bar" aria-label="Portfolio categories">
+      <button
+        *ngFor="let category of categories"
+        type="button"
+        [class.active]="selectedCategory === category"
+        (click)="selectCategory(category)"
+      >
+        {{ category }}
+      </button>
+    </div>
+
+    <div class="gallery-grid">
+      <article *ngFor="let sketch of filteredSketches" class="gallery-card">
+        <div class="gallery-card__art">
+          <span>{{ sketch.title.charAt(0) }}</span>
+        </div>
+        <div class="gallery-card__body">
+          <small>{{ sketch.category }}</small>
+          <h2>{{ sketch.title }}</h2>
+          <p>{{ sketch.description }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

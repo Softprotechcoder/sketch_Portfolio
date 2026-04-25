@@ -1,17 +1,23 @@
-<!-- NaveBar and Navigation -->
- <nav class="navbar" [class.scrolled]="scrolled">
+<nav class="navbar" [class.scrolled]="scrolled" aria-label="Primary navigation">
   <div class="nav-inner">
-    <!-- Brand / Logo -->
     <a routerLink="/" class="brand">
-      <img src="/Logo_AA.jpg" alt="" class="logo">
-      Ayushi Arya
+      <img src="/ayushi-arya-logo.svg" alt="Ayushi Arya Sketch Artist" class="logo">
     </a>
 
-    <!-- Navigation Links -->
     <ul class="nav-menu">
       <li>
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/" fragment="services">
+          Services
+        </a>
+      </li>
+      <li>
+        <a routerLink="/commission" routerLinkActive="active">
+          Upload
         </a>
       </li>
       <li>
@@ -20,8 +26,8 @@
         </a>
       </li>
       <li>
-        <a routerLink="/commission" routerLinkActive="active">
-          Commission
+        <a routerLink="/" fragment="reels">
+          Reels
         </a>
       </li>
       <li>
@@ -33,4 +39,6 @@
   </div>
 </nav>
 
-<router-outlet />
+<main>
+  <router-outlet />
+</main>

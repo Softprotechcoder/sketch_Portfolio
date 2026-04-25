@@ -1,1 +1,114 @@
-<p>commission works!</p>
+<section class="page-shell commission-page">
+  <div class="page-inner commission-grid">
+    <aside class="commission-intro">
+      <p class="eyebrow">Free sketch request</p>
+      <h1 class="section-title">Upload your favourite photo.</h1>
+      <p class="section-copy">
+        Share a clear picture and delivery details. Ayushi will add your request to the sketch
+        queue and prepare a soft-copy portrait at no cost.
+      </p>
+
+      <div class="service-card">
+        <span class="service-card__mark">01</span>
+        <h2>What happens next?</h2>
+        <p>
+          Your token represents your place in the queue. The request stays on this device for the
+          v1 demo, ready to connect with a real backend later.
+        </p>
+      </div>
+
+      <a routerLink="/portfolio" class="btn btn-soft">View sketch style</a>
+    </aside>
+
+    <form class="request-form" [formGroup]="form" (ngSubmit)="submitRequest()" novalidate>
+      <div class="form-heading">
+        <p class="eyebrow">Queue details</p>
+        <h2>Sketch delivery form</h2>
+      </div>
+
+      <label>
+        <span>Name</span>
+        <input formControlName="name" type="text" autocomplete="name" placeholder="Your full name">
+        <small *ngIf="form.controls.name.touched && form.controls.name.invalid">
+          Name is required.
+        </small>
+      </label>
+
+      <div class="form-row">
+        <label>
+          <span>Email</span>
+          <input formControlName="email" type="email" autocomplete="email" placeholder="you@example.com">
+          <small *ngIf="form.controls.email.touched && form.controls.email.invalid">
+            Enter a valid email.
+          </small>
+        </label>
+
+        <label>
+          <span>Mobile</span>
+          <input formControlName="mobile" type="tel" autocomplete="tel" placeholder="10 digit mobile">
+          <small *ngIf="form.controls.mobile.touched && form.controls.mobile.invalid">
+            Mobile number is required.
+          </small>
+        </label>
+      </div>
+
+      <label>
+        <span>Address</span>
+        <textarea formControlName="address" rows="3" placeholder="Your current address"></textarea>
+        <small *ngIf="form.controls.address.touched && form.controls.address.invalid">
+          Address is required.
+        </small>
+      </label>
+
+      <label>
+        <span>Delivery address</span>
+        <textarea formControlName="deliveryAddress" rows="3" placeholder="Email, WhatsApp, or delivery note"></textarea>
+        <small *ngIf="form.controls.deliveryAddress.touched && form.controls.deliveryAddress.invalid">
+          Delivery address is required.
+        </small>
+      </label>
+
+      <label>
+        <span>Reference note</span>
+        <textarea formControlName="message" rows="3" placeholder="Expression, crop, background, or any detail"></textarea>
+      </label>
+
+      <label class="upload-box" [class.has-preview]="imagePreview">
+        <input type="file" accept="image/jpeg,image/png,image/webp" (change)="onPhotoSelected($event)">
+        <span class="upload-box__title">Upload picture</span>
+        <span class="upload-box__copy">JPG, PNG, or WEBP. Your image remains in this browser.</span>
+        <img *ngIf="imagePreview" [src]="imagePreview" alt="Selected sketch reference preview">
+      </label>
+      <small class="error" *ngIf="fileError">{{ fileError }}</small>
+      <small class="error" *ngIf="form.controls.photoName.touched && form.controls.photoName.invalid">
+        Photo upload is required.
+      </small>
+
+      <button class="btn btn-primary" type="submit">Generate queue token</button>
+    </form>
+  </div>
+</section>
+
+<div class="token-backdrop" *ngIf="hasToken" role="presentation" (click)="closeToken()"></div>
+<section
+  class="token-modal"
+  *ngIf="submittedRequest as request"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="token-title"
+>
+  <button class="token-modal__close" type="button" aria-label="Close token popup" (click)="closeToken()">
+    x
+  </button>
+  <p class="eyebrow">Request received</p>
+  <h2 id="token-title">Your queue token is ready.</h2>
+  <strong>{{ request.tokenId }}</strong>
+  <p>
+    This token represents position {{ request.queueNumber }} in Ayushi's sketch queue. A free
+    soft-copy sketch delivery note has been saved with your request.
+  </p>
+  <div class="token-actions">
+    <button class="btn btn-primary" type="button" (click)="startAnother()">Add another</button>
+    <button class="btn btn-soft" type="button" (click)="closeToken()">Close</button>
+  </div>
+</section>

@@ -1,1 +1,101 @@
-<p>home works!</p>
+<section class="hero" id="top">
+  <div class="hero__content">
+    <p class="eyebrow">Ayushi Arya Sketch Artist</p>
+    <h1>Handmade portraits for the moments you keep close.</h1>
+    <p>
+      A warm sketchbook-inspired portfolio where you can explore Ayushi's style, upload a
+      reference photo, and receive a queue token for a free soft-copy sketch.
+    </p>
+    <div class="hero__actions">
+      <a routerLink="/commission" class="btn btn-primary">Upload your picture</a>
+      <a routerLink="/portfolio" class="btn btn-soft">See portfolio</a>
+    </div>
+  </div>
+
+  <div class="hero__art" aria-label="Sketchbook preview">
+    <div class="paper-stack paper-stack--back"></div>
+    <div class="paper-stack">
+      <img src="/ayushi-arya-logo.svg" alt="Ayushi Arya logo">
+      <div class="portrait-lines">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <p>Soft graphite portraits, delivered digitally.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="section__heading">
+    <p class="eyebrow">Services</p>
+    <h2 class="section-title">Free sketch service, soft-copy delivery.</h2>
+  </div>
+  <div class="service-grid">
+    <article *ngFor="let service of services">
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.copy }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section upload-banner" id="upload">
+  <div>
+    <p class="eyebrow">Start the queue</p>
+    <h2 class="section-title">Send one clear photo and your details.</h2>
+  </div>
+  <a routerLink="/commission" class="btn btn-primary">Open upload form</a>
+</section>
+
+<section class="section featured">
+  <div class="section__heading">
+    <p class="eyebrow">Portfolio notes</p>
+    <h2 class="section-title">A few moods from the sketchbook.</h2>
+  </div>
+  <div class="feature-grid">
+    <article *ngFor="let sketch of featuredSketches">
+      <div class="sketch-card__image">
+        <span>{{ sketch.title.charAt(0) }}</span>
+      </div>
+      <h3>{{ sketch.title }}</h3>
+      <p>{{ sketch.type }}</p>
+      <small>{{ sketch.tone }}</small>
+    </article>
+  </div>
+</section>
+
+<section class="section reels" id="reels">
+  <div class="section__heading">
+    <p class="eyebrow">Instagram reels</p>
+    <h2 class="section-title">Reel placeholders ready for real embeds.</h2>
+    <p class="section-copy">
+      This v1 keeps a polished Reel wall without requiring Instagram API approval. Public Reel URLs
+      can replace these cards later.
+    </p>
+  </div>
+  <div class="reel-grid">
+    <article *ngFor="let reel of reelCards">
+      <span>{{ reel.metric }}</span>
+      <h3>{{ reel.title }}</h3>
+      <p>{{ reel.copy }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section process">
+  <div class="process-line">
+    <span *ngFor="let step of process; let index = index">
+      <strong>{{ index + 1 }}</strong>{{ step }}
+    </span>
+  </div>
+</section>
+
+<section class="section about-preview" id="contact">
+  <div>
+    <p class="eyebrow">About Ayushi</p>
+    <h2 class="section-title">Portraits that feel personal before they feel polished.</h2>
+    <p class="section-copy">
+      Ayushi's work is rooted in gentle expression, soft shadows, and the quiet details that make a
+      face familiar. The site is built to make requesting a sketch simple and welcoming.
+    </p>
+  </div>
+  <a routerLink="/about" class="btn btn-soft">Read artist story</a>
+</section>

@@ -1,1 +1,38 @@
-<p>about works!</p>
+<section class="page-shell about-page">
+  <div class="page-inner about-grid">
+    <div>
+      <p class="eyebrow">Artist story</p>
+      <h1 class="section-title">Ayushi Arya draws the face before the frame.</h1>
+      <p class="section-copy">
+        The work begins with expression: a smile held gently, eyes with enough depth, and shadows
+        that feel handmade rather than heavy. This portfolio is shaped like a sketchbook so each
+        visitor can move from inspiration to request without losing the artist's warmth.
+      </p>
+      <a routerLink="/commission" class="btn btn-primary">Request a sketch</a>
+    </div>
+
+    <aside class="about-card">
+      <img src="/ayushi-arya-logo.svg" alt="Ayushi Arya Sketch Artist logo">
+      <h2>Free soft-copy delivery</h2>
+      <p>
+        This first version focuses on clear requests, queue tokens, and a graceful handoff for
+        digital delivery.
+      </p>
+    </aside>
+  </div>
+
+  <div class="page-inner policy-grid">
+    <article *ngFor="let note of notes">
+      <span></span>
+      <p>{{ note }}</p>
+    </article>
+  </div>
+
+  <div class="page-inner contact-strip">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Send a reference. Keep the token.</h2>
+    </div>
+    <a routerLink="/commission" class="btn btn-soft">Open upload form</a>
+  </div>
+</section>

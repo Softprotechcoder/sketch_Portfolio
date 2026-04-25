@@ -1,43 +1,41 @@
-/* ===== NAVBAR WRAPPER ===== */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: transparent;
-  transition: background 0.3s ease, border 0.3s ease;
+  background: rgba(250, 244, 233, 0.78);
+  border-bottom: 1px solid rgba(54, 47, 41, 0.08);
+  backdrop-filter: blur(14px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* When scrolled */
 .navbar.scrolled {
-  background: rgba(250, 250, 247, 0.95);
-  border-bottom: 1px solid #e5e5e0;
-  backdrop-filter: blur(6px);
+  background: rgba(250, 244, 233, 0.96);
+  box-shadow: 0 16px 45px rgba(48, 38, 30, 0.08);
 }
 
-/* ===== INNER CONTAINER ===== */
 .nav-inner {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 1.2rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 
-/* ===== BRAND ===== */
 .brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
   text-decoration: none;
-  color: #1e1e1e;
-  letter-spacing: 0.5px;
-  display: contents;
+  display: inline-flex;
+  align-items: center;
+  min-width: 155px;
 }
 
-/* ===== NAV MENU ===== */
 .nav-menu {
   display: flex;
-  gap: 2.2rem;
+  align-items: center;
+  gap: 1.35rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -45,12 +43,15 @@
   a {
     position: relative;
     text-decoration: none;
-    font-size: 0.95rem;
-    color: #1e1e1e;
-    transition: opacity 0.2s ease;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #3a302a;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
 
     &:hover {
-      opacity: 0.6;
+      color: #a05f45;
     }
 
     &.active::after {
@@ -59,28 +60,48 @@
       left: 0;
       bottom: -6px;
       width: 100%;
-      height: 1px;
-      background: #1e1e1e;
+      height: 2px;
+      background: #a05f45;
     }
   }
 }
+
 .logo {
-      height: 70px;       // control logo size
-      width: auto;        // keep aspect ratio
-      margin-right: 0.5rem;
-    //   object-fit: contain; // ensures proper scaling
-      cursor: pointer;
-      transition: transform 0.2s ease-in-out;
+  height: 58px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 
-      &:hover {
-        transform: scale(1.05); // subtle hover effect
-      }
-    }
+  &:hover {
+    transform: rotate(-1.5deg) scale(1.03);
+  }
+}
 
+main {
+  min-height: 100vh;
+}
 
-/* ===== MOBILE ===== */
 @media (max-width: 768px) {
+  .navbar {
+    position: sticky;
+  }
+
+  .nav-inner {
+    align-items: flex-start;
+    padding: 0.65rem 1rem;
+  }
+
   .nav-menu {
-    display: none;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.72rem;
+  }
+
+  .logo {
+    height: 48px;
   }
 }

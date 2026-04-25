@@ -1,1 +1,131 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #2d2824;
+  --muted-ink: #665b51;
+  --paper: #faf4e9;
+  --paper-deep: #efe1cf;
+  --graphite: #4d4945;
+  --clay: #a05f45;
+  --clay-dark: #784532;
+  --sage: #7f8b72;
+  --cream: #fffaf1;
+  --line: rgba(45, 40, 36, 0.16);
+  --shadow: 0 22px 55px rgba(62, 49, 39, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Inter', Arial, sans-serif;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(160, 95, 69, 0.09), transparent 28rem),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.55) 0 1px, transparent 1px 12px),
+    var(--paper);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.28;
+  background-image:
+    linear-gradient(rgba(45, 40, 36, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 40, 36, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--clay);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.section-copy {
+  color: var(--muted-ink);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.85rem 1.15rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  background: transparent;
+  text-decoration: none;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(45, 40, 36, 0.13);
+}
+
+.btn-primary {
+  color: #fffaf3;
+  background: var(--ink);
+}
+
+.btn-soft {
+  border-color: rgba(45, 40, 36, 0.18);
+  background: rgba(255, 250, 241, 0.78);
+}
+
+.page-shell {
+  padding: 7.2rem 1.25rem 4rem;
+}
+
+.page-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page-shell {
+    padding-top: 2rem;
+  }
+}

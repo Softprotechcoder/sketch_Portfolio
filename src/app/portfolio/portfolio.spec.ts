@@ -20,4 +20,10 @@ describe('Portfolio', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('filters sketches by selected category', () => {
+    component.selectCategory('Portrait');
+
+    expect(component.filteredSketches.every((sketch) => sketch.category === 'Portrait')).toBe(true);
+  });
 });

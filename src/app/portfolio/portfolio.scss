@@ -1,0 +1,93 @@
+.portfolio-hero {
+  max-width: 780px;
+  margin-bottom: 2rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-bar button {
+  min-height: 40px;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: rgba(255, 250, 241, 0.7);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.filter-bar button.active,
+.filter-bar button:hover {
+  color: #fffaf3;
+  background: var(--ink);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gallery-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--cream);
+  box-shadow: 0 16px 38px rgba(62, 49, 39, 0.09);
+}
+
+.gallery-card__art {
+  display: grid;
+  place-items: center;
+  height: 300px;
+  background:
+    radial-gradient(ellipse at 50% 34%, rgba(45, 40, 36, 0.05) 0 54px, rgba(45, 40, 36, 0.14) 55px 58px, transparent 59px),
+    radial-gradient(ellipse at 50% 74%, transparent 0 84px, rgba(45, 40, 36, 0.12) 85px 87px, transparent 88px),
+    linear-gradient(135deg, rgba(239, 225, 207, 0.95), rgba(255, 250, 241, 0.8));
+}
+
+.gallery-card__art span {
+  color: rgba(45, 40, 36, 0.28);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 6rem;
+}
+
+.gallery-card__body {
+  padding: 1rem;
+}
+
+.gallery-card small {
+  color: var(--clay);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gallery-card h2 {
+  margin: 0.45rem 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+}
+
+.gallery-card p {
+  margin: 0;
+  color: var(--muted-ink);
+  line-height: 1.65;
+}
+
+@media (max-width: 920px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
